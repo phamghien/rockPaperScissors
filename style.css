@@ -1,0 +1,21 @@
+
+body {
+    background-color: #357d13;
+    color: black; 
+}
+  
+  .header {
+    display: flex; 
+    justify-content: center;
+    background-color: white;
+    font-size: 90px;
+}
+
+.logo {
+    padding: 8px;
+}
+
+.container { 
+    display: flex; 
+    justify-content: center; 
+}
