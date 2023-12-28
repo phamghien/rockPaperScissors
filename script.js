@@ -1,25 +1,65 @@
+let playerScore = 0; 
+let computerScore = 0; 
+let playerSelection; 
+let computerSelection; 
+let playerChoice; 
+
+var ball = document.querySelector(".ball"); 
+
+
+const buttons = document.querySelectorAll('.btn'); 
+
+const output = document.querySelector("#output");
+output.textContent = "Goodluck!"
+
+buttons.forEach((button)=>{button.addEventListener('click',()=>{
+
+    playerChoice = button.id;
+    if (playerChoice == "rock"){
+        playerSelection = "rock"; 
+    }
+    else if (playerChoice == "paper"){
+        playerSelection = "paper"; 
+    }
+    else if (playerChoice == "scissors")
+    {
+        playerSelection = "scissors"; 
+    }
+
+    computerSelection = getComputerChoice(); 
+    playRound(playerSelection, computerSelection);
+    })
+
+})
+
 function getComputerChoice() {
     const pick = ["rock", "paper", "scissors"]; 
     return pick[Math.floor(Math.random() * pick.length)]; 
 }
 
 function playRound(playerSelection, computerSelection){
+
     if(playerSelection == computerSelection) {
-        return "TIE!";
+        output.textContent = "TIE"; 
     } else if (playerSelection == "rock" && computerSelection == "scissors") {
-        return "YOU WIN!";
+        output.textContent = "YOU WIN"; 
     } else if (playerSelection == "paper" && computerSelection == "rock") {
-        return "YOU WIN!"; 
+        output.textContent = "YOU WIN"; 
     } else if (playerSelection == "scissors" && computerSelection == "paper") {
-        return "YOU WIN!"; 
+        output.textContent = "YOU WIN"; 
     } else {
-        return "YOU LOSE!";
+        output.textContent = "YOU LOSE"; 
+        lose(); 
     }
 }
 
+function lose(){
+    ball.classList.toggle("left"); 
+
+}
+/*
 function gameScore() {
-    let playerScore = 0; 
-    let computerScore = 0; 
+    
 
     for(let count = 0; count < 5; count++){
         const playerSelection = prompt("Choose rock, paper, or scissors").toLowerCase(); 
@@ -39,5 +79,4 @@ function gameScore() {
         console.log("LOSER.")
     }
 }
-
-gameScore(); 
+*/
