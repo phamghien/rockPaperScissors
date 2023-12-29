@@ -6,7 +6,6 @@ let playerChoice;
 
 var ball = document.querySelector(".ball"); 
 
-
 const buttons = document.querySelectorAll('.btn'); 
 
 const output = document.querySelector("#output");
@@ -43,10 +42,13 @@ function playRound(playerSelection, computerSelection){
         output.textContent = "TIE"; 
     } else if (playerSelection == "rock" && computerSelection == "scissors") {
         output.textContent = "YOU WIN"; 
+        win(); 
     } else if (playerSelection == "paper" && computerSelection == "rock") {
         output.textContent = "YOU WIN"; 
+        win(); 
     } else if (playerSelection == "scissors" && computerSelection == "paper") {
         output.textContent = "YOU WIN"; 
+        win(); 
     } else {
         output.textContent = "YOU LOSE"; 
         lose(); 
@@ -54,9 +56,21 @@ function playRound(playerSelection, computerSelection){
 }
 
 function lose(){
-    ball.classList.toggle("left"); 
-
+    ball.classList.add("lose");
+    ball.addEventListener("animationend", onAnimationEnd); 
 }
+
+function win(){
+    ball.classList.add("win");
+    ball.addEventListener("animationend", onAnimationEnd); 
+}
+
+function onAnimationEnd() {
+    ball.classList.remove("lose"); 
+    ball.classList.remove("win"); 
+}
+
+
 /*
 function gameScore() {
     

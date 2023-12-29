@@ -33,20 +33,47 @@ body {
 }
 
 .ball {
+    display: block; 
     position: absolute; 
     top: 355px; 
     left: 595px;
     width: 7%; 
     height: auto; 
-    transition: all 1s ease;
-    transform:translateX(0px);
-
 }
 
-.ball.left{
-    transform:translateX(100px);
-    transition: all 2s ease;
+.lose { 
+  animation: left 0.5s; 
 }
+
+
+@keyframes left {
+  0% {
+    left: 50%; 
+  }
+  90% {
+    left: 0%
+  }
+  100% {
+    left: 50%; 
+  }
+}
+
+.win {
+  animation: right 0.5s; 
+}
+
+@keyframes right {
+  0% {
+    left: 50%; 
+  }
+  90% {
+    left: 95%
+  }
+  100% {
+    left: 50%; 
+  }
+}
+
 
   .player {
     display: flex; 
