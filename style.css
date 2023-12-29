@@ -12,6 +12,7 @@ body {
     flex-direction: column;
     margin-top: 150px;
     font-family: myFont; 
+    font-weight: 1; 
 }
   
   .header {
@@ -25,6 +26,7 @@ body {
 
 .logo {
     padding-right: 20px;
+    padding-left: 20px;
     padding-top: 10px
 }
 
@@ -49,7 +51,7 @@ body {
     display: block; 
     position: absolute; 
     top: 380px; 
-    left: 610px;
+    left: 612px;
     width: 7%; 
     height: auto; 
 }
@@ -95,12 +97,21 @@ body {
 }
 
   .btn {
+    font-family: myFont;
     font-size: 50px; 
-    padding: 25px; 
+    padding-top: 25px; 
+    padding-bottom: 25px; 
+    padding-left: 100px; 
+    padding-right: 100px; 
+    margin: 20px; 
+    border: 1px solid #eee;
+    box-shadow: 2px 4px 16px black;
+    border-radius: 20px;
+    background-color: #357d13; 
   }
 
   .btn:hover {
-    background-color: #357d13;
+    background-color: white;
   }
 
   .text {

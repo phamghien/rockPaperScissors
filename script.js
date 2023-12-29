@@ -9,7 +9,7 @@ var ball = document.querySelector(".ball");
 const buttons = document.querySelectorAll('.btn'); 
 
 const output = document.querySelector("#output");
-output.textContent = "Goodluck!"
+output.textContent = "Choose your move:"
 
 buttons.forEach((button)=>{button.addEventListener('click',()=>{
 
