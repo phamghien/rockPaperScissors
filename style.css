@@ -1,22 +1,31 @@
+@font-face {
+  font-family: myFont; 
+  src:url(myFont.ttf); 
+}
+
 
 body {
-    background-color: #357d13;
+    background-color: white;
     color: black; 
     display: flex;
     align-items: center;
     flex-direction: column;
     margin-top: 150px;
+    font-family: myFont; 
 }
   
   .header {
     display: flex; 
     justify-content: center;
     background-color: white;
+    font-family: myFont; 
     font-size: 90px;
+    padding-left: 20px;
 }
 
 .logo {
-    padding: 8px;
+    padding-right: 20px;
+    padding-top: 10px
 }
 
 .container { 
@@ -30,13 +39,17 @@ body {
     top: 0;
     left: 0; 
     width: 100%;
+    border: 1px solid #eee;
+    box-shadow: 2px 4px 16px #357d13;
+    border-radius: 4px;
+    padding: 16px;
 }
 
 .ball {
     display: block; 
     position: absolute; 
-    top: 355px; 
-    left: 595px;
+    top: 380px; 
+    left: 610px;
     width: 7%; 
     height: auto; 
 }
@@ -74,7 +87,6 @@ body {
   }
 }
 
-
   .player {
     display: flex; 
     flex-direction: row;
@@ -96,5 +108,5 @@ body {
   }
 
   #output {
-    font-size: 150px; 
+    font-size: 90px; 
   }
