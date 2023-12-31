@@ -3,7 +3,6 @@
   src:url(myFont.ttf); 
 }
 
-
 body {
     background-color: white;
     color: black; 
@@ -122,31 +121,33 @@ body {
     font-size: 90px; 
   }
 
+  #computerScore { 
+    color: red;
+  }
+
+  #playerScore {
+    color: blue; 
+  }
+
+  #description {
+    font-size: 90px; 
+    margin-bottom: -50px; 
+  }
+
   .buttoncontainer {
     display: flex; 
     flex-direction: row; 
     font-size: 50px;
- 
   }
 
   .scoreContainer { 
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding-left: 25px; 
+    padding-left: 55px; 
     padding-right: 25px; 
-    flex-wrap: wrap;
-  }
-
-  .score { 
-    font-size: 50px;
-  }
-
-  .footer {
-    background-color: white;
-    font-family: myFont; 
-    font-size: 90px;
-    padding-left: 20px;
+    width: 250px; 
+    text-align: center; 
   }
 
   .modal { 
