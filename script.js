@@ -10,14 +10,17 @@ const buttons = document.querySelectorAll('.btn');
 const output = document.querySelector("#output");
 const ball = document.querySelector(".ball"); 
 const gameOverModal = document.getElementById("gameOverModal"); 
-const restartButton = document.getElementById("restart-button")
+const restartButton = document.getElementById("restartButton")
+const overlay = document.getElementById("overlay");
+
+restartButton.addEventListener('click', () => {
+    restartGame();
+});
 
 output.textContent = "Choose your move:"
 
-
 // Button responses when clicked
 buttons.forEach((button)=>{button.addEventListener('click',()=>{
-
 
     playerChoice = button.id;
 
@@ -30,12 +33,14 @@ buttons.forEach((button)=>{button.addEventListener('click',()=>{
     else if (playerChoice == "scissors")
     {
         playerSelection = "scissors"; 
+    } else {
+        return; 
     }
 
     computerSelection = getComputerChoice(); 
     playRound(playerSelection, computerSelection);
-    })
 
+    })
 })
 
 // Generate random computer choice
@@ -46,6 +51,10 @@ function getComputerChoice() {
 
 // Play game round and update score
 function playRound(playerSelection, computerSelection){
+
+    if(isGameOver()) {
+        return; 
+    }
 
     if(playerSelection == computerSelection) {
         output.textContent = "TIE"; 
@@ -69,6 +78,11 @@ function playRound(playerSelection, computerSelection){
 
     playerScoreNumber.textContent = playerScore;
     computerScoreNumber.textContent = computerScore;
+
+    if(isGameOver()) {
+        openModal();
+        gameOverText();
+    }
 }
 
 // Ball will go left if lose, ball will go right if win
@@ -89,31 +103,35 @@ function onAnimationEnd() {
 
 // Game is over, restart game
 function isGameOver() {
-    return playerScore === 5 || computerScore === 5
+    return playerScore === 5 || computerScore === 5; 
   }
 
-  /* 
-function openGameOverBox(){
-    gameOverModal.classList.add("active");
+function restartGame() {
+    closeModal(); 
+    output.textContent = "Choose your move:"
+    playerScore = 0; 
+    computerScore = 0; 
+    playerScoreNumber.textContent = playerScore;
+    computerScoreNumber.textContent = computerScore;
+    playerSelection = "?"; 
+    computerSelection = "?"; 
 }
 
-function closeGameOverBox(){
+function openModal(){
+    gameOverModal.classList.add("active");
+    overlay.classList.add("active"); 
+}
+
+function closeModal(){
     gameOverModal.classList.remove("active"); 
+    overlay.classList.remove("active"); 
 }
 
 function gameOverText(){
-    if(playerScore == 5){
-        gameOverText.textContent = "You win!"
+    if(playerScore >= 5){
+        modalText.textContent = "You won!"
     }
-    if(computerScore == 5){
-        gameOverText.textContent = "You lose!"
+    if(computerScore >= 5){
+        modalText.textContent = "You lost!"
     }
 }
-
-function restartGame() {
-    gameOverModal.classList.remove("active");
-    playerScore = 0; 
-    computerScore = 0; 
-
-} 
-*/ 
